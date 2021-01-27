@@ -1,0 +1,13 @@
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\bin\Debug\netcoreapp3.1\GameMarketDemo.exe
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\bin\Debug\netcoreapp3.1\GameMarketDemo.deps.json
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\bin\Debug\netcoreapp3.1\GameMarketDemo.runtimeconfig.json
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\bin\Debug\netcoreapp3.1\GameMarketDemo.runtimeconfig.dev.json
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\bin\Debug\netcoreapp3.1\GameMarketDemo.dll
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\bin\Debug\netcoreapp3.1\GameMarketDemo.pdb
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\obj\Debug\netcoreapp3.1\GameMarketDemo.csprojAssemblyReference.cache
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\obj\Debug\netcoreapp3.1\GameMarketDemo.AssemblyInfoInputs.cache
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\obj\Debug\netcoreapp3.1\GameMarketDemo.AssemblyInfo.cs
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\obj\Debug\netcoreapp3.1\GameMarketDemo.csproj.CoreCompileInputs.cache
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\obj\Debug\netcoreapp3.1\GameMarketDemo.dll
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\obj\Debug\netcoreapp3.1\GameMarketDemo.pdb
+C:\Users\Firat\source\repos\GameMarketDemo\GameMarketDemo\obj\Debug\netcoreapp3.1\GameMarketDemo.genruntimeconfig.cache
