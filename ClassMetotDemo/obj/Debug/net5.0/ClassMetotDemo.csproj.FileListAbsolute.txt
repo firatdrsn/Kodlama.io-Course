@@ -1,0 +1,16 @@
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\bin\Debug\net5.0\ClassMetotDemo.exe
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\bin\Debug\net5.0\ClassMetotDemo.deps.json
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\bin\Debug\net5.0\ClassMetotDemo.runtimeconfig.json
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\bin\Debug\net5.0\ClassMetotDemo.runtimeconfig.dev.json
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\bin\Debug\net5.0\ClassMetotDemo.dll
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\bin\Debug\net5.0\ref\ClassMetotDemo.dll
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\bin\Debug\net5.0\ClassMetotDemo.pdb
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ClassMetotDemo.csprojAssemblyReference.cache
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ClassMetotDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ClassMetotDemo.AssemblyInfoInputs.cache
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ClassMetotDemo.AssemblyInfo.cs
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ClassMetotDemo.csproj.CoreCompileInputs.cache
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ClassMetotDemo.dll
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ref\ClassMetotDemo.dll
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ClassMetotDemo.pdb
+C:\Users\Firat\ClassMetotDemo\ClassMetotDemo\obj\Debug\net5.0\ClassMetotDemo.genruntimeconfig.cache
