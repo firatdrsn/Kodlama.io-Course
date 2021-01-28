@@ -8,6 +8,6 @@ namespace GameMarketDemo.Entities
     {
         public int Id { get; set; }
         public string GameName { get; set; }
-        public int GamePrice { get; set; }
+        public double GamePrice { get; set; }
     }
 }

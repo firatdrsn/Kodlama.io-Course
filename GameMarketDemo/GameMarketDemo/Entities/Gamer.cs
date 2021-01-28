@@ -4,8 +4,8 @@ using System.Text;
 
 namespace GameMarketDemo.Entities
 {
-    public class Gamer:Person
+    public class Gamer
     {
-        public List<Game> Games { get; set; }
+        public List<Person> Gamers { get; set; }
     }
 }

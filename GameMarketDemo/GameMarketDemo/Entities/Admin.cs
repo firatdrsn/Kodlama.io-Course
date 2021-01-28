@@ -6,6 +6,6 @@ namespace GameMarketDemo.Entities
 {
     public class Admin:Person
     {
-        public string Password { get; set; }
+        public List<Person> Admins { get; set; }
     }
 }

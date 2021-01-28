@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Firat\\source\\repos\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj": {}
+    "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Firat\\source\\repos\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj": {
+    "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Firat\\source\\repos\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj",
+        "projectUniqueName": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj",
         "projectName": "GameMarketDemo",
-        "projectPath": "C:\\Users\\Firat\\source\\repos\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj",
+        "projectPath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj",
         "packagesPath": "C:\\Users\\Firat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Firat\\source\\repos\\GameMarketDemo\\GameMarketDemo\\obj\\",
+        "outputPath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\GameMarketDemo\\GameMarketDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Firat\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,24 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.ServiceModel.Duplex": {
+              "target": "Package",
+              "version": "[4.4.*, )"
+            },
+            "System.ServiceModel.Http": {
+              "target": "Package",
+              "version": "[4.4.*, )"
+            },
+            "System.ServiceModel.NetTcp": {
+              "target": "Package",
+              "version": "[4.4.*, )"
+            },
+            "System.ServiceModel.Security": {
+              "target": "Package",
+              "version": "[4.4.*, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

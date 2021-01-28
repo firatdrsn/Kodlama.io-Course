@@ -1,8 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "bY2FCFSr6FhM3mEvar8V6jHnnYbRtYrXiiHRzxYNwX5Nmkr1VSACmHoDhshggWP4rP8gMd4JkZYap0XftoyMOg==",
+  "dgSpecHash": "rNk0i/6FNq34P+bS8dQZM3j/qqfJP8MWoEyanUS6qWwTgvNf224go+qFO/GcjJeSreL9dHXOqa9Ef69hEnvbDg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Firat\\source\\repos\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\GameMarketDemo\\GameMarketDemo\\GameMarketDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Firat\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.net.http.winhttphandler\\4.4.0\\system.net.http.winhttphandler.4.4.0.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.private.servicemodel\\4.4.4\\system.private.servicemodel.4.4.4.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.reflection.dispatchproxy\\4.4.0\\system.reflection.dispatchproxy.4.4.0.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.security.principal.windows\\4.4.0\\system.security.principal.windows.4.4.0.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.servicemodel.duplex\\4.4.4\\system.servicemodel.duplex.4.4.4.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.servicemodel.http\\4.4.4\\system.servicemodel.http.4.4.4.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.servicemodel.nettcp\\4.4.4\\system.servicemodel.nettcp.4.4.4.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.servicemodel.primitives\\4.4.4\\system.servicemodel.primitives.4.4.4.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\system.servicemodel.security\\4.4.4\\system.servicemodel.security.4.4.4.nupkg.sha512"
+  ],
   "logs": []
 }
