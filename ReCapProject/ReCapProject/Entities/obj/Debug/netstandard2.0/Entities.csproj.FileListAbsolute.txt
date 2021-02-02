@@ -1,0 +1,9 @@
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\bin\Debug\netstandard2.0\Entities.deps.json
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\bin\Debug\netstandard2.0\Entities.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\bin\Debug\netstandard2.0\Entities.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\obj\Debug\netstandard2.0\Entities.csprojAssemblyReference.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\obj\Debug\netstandard2.0\Entities.AssemblyInfoInputs.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\obj\Debug\netstandard2.0\Entities.AssemblyInfo.cs
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\obj\Debug\netstandard2.0\Entities.csproj.CoreCompileInputs.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\obj\Debug\netstandard2.0\Entities.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\Entities\obj\Debug\netstandard2.0\Entities.pdb

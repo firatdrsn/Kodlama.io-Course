@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Fqap3ovWo/AUE5y8zgD4QdsSnqx6/rfLNFPhNi2i2393/7ddzBPshaOaBeyERFyINEwMn1uP/Z/GHyqTgwVb9Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\ReCapProject\\DataAccess\\DataAccess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Firat\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
