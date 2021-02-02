@@ -10,3 +10,15 @@ C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\DataAcce
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CopyComplete
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\bin\Debug\netstandard2.0\DataAccess.deps.json
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\bin\Debug\netstandard2.0\DataAccess.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\bin\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\bin\Debug\netstandard2.0\Entities.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\bin\Debug\netstandard2.0\Entities.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.csprojAssemblyReference.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.cs
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CopyComplete
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb

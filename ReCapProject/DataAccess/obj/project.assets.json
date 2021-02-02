@@ -201,11 +201,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\ReCapProject\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\ReCapProject\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\Firat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\ReCapProject\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Firat\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -222,8 +222,8 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\ReCapProject\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\ReCapProject\\Entities\\Entities.csproj"
+            "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\Entities\\Entities.csproj"
             }
           }
         }

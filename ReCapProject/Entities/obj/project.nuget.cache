@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AxT39ExLxm9ocWDYMpBkelDSqeHIZyEb3hi+thuBmDGdL8LihI7bNq8fmDHBToTARoPkGGh1wuS0BOC1PYv5NQ==",
+  "dgSpecHash": "hxmJEc6s0mC3aEbsNhQB5/ZEX+KbLrz2IipHK+fPBIw5HaUsj4i9KClS7gYXLkTu/TBTjs88ZK1nyc/me54rLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\ReCapProject\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Firat\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Firat\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
