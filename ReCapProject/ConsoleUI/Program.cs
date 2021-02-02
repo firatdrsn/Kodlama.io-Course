@@ -28,6 +28,12 @@ namespace ConsoleUI
             carManager.Add(car);
             ListCar(carManager);
 
+            Console.WriteLine("Detaylı görüntülemek istediniz aracın Id değerini giriniz");
+            int Id = int.Parse(Console.ReadLine());
+            Car carDetail = carManager.GetByID(Id);
+            Console.WriteLine(carDetail.Id + " Idli aracın bilgileri => " + carDetail.Description + " - " + carDetail.ModelYear + " - " + carDetail.DailyPrice+" - "+carDetail.BrandId+" - "+carDetail.ColorId+"\n");
+
+            ListCar(carManager);
             Car updateCar = new Car();
             Console.WriteLine("Güncellenecek aracın id değerini giriniz");
             updateCar.Id = int.Parse(Console.ReadLine());
@@ -56,7 +62,7 @@ namespace ConsoleUI
         {
             foreach (var carList in carManager.GetAll())
             {
-                Console.WriteLine(carList.Id + " - " + carList.Description + " - Marka Id= " + carList.BrandId + " - Renk Id= " + carList.ColorId + " - " + carList.ModelYear + " - " + carList.DailyPrice);
+                Console.WriteLine(carList.Id + " - " + carList.Description + " - " + carList.ModelYear + " - " + carList.DailyPrice+"\n");
             }
         }
     }
