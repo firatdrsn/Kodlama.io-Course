@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
@@ -9,16 +10,32 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new InMemoryCarDal());
-            ListCar(carManager);
-            Console.WriteLine("Yeni araç bilgilerini giriniz");
+            CarManager carManager = new CarManager(new EfCarDal());
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+
+            Console.WriteLine("Marka giriniz");
+            Brand brand = new Brand();
+            brand.BrandName = Console.ReadLine();
+            brandManager.Add(brand);
+            Console.WriteLine("\nMarkalar");
+            foreach (var itemBrand in brandManager.GetAll())
+            {
+                Console.WriteLine(itemBrand.BrandName);
+            } 
+            Console.WriteLine("\nRenk giriniz");
+            Color color = new Color();
+            color.ColorName = Console.ReadLine();
+            colorManager.Add(color);
+            Console.WriteLine("\nRenkler");
+            foreach (var itemColor in colorManager.GetAll())
+            {
+                Console.WriteLine(itemColor.ColorName);
+            }
+            Console.WriteLine("\nYeni araç bilgilerini giriniz. Eklenen marka ve renk bilgisi otomatik seçildi");
             Car car = new Car();
-            Console.WriteLine("Id giriniz");
-            car.Id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Brand Id giriniz");
-            car.BrandId = int.Parse(Console.ReadLine());
-            Console.WriteLine("Color Id giriniz");
-            car.ColorId = int.Parse(Console.ReadLine());
+            car.BrandId = brand.Id;
+            car.ColorId = color.Id;
             Console.WriteLine("Günlük ücretini giriniz");
             car.DailyPrice = int.Parse(Console.ReadLine());
             Console.WriteLine("Model yılını giriniz");
@@ -26,35 +43,18 @@ namespace ConsoleUI
             Console.WriteLine("Araçla ilgili açıklama giriniz");
             car.Description = Console.ReadLine();
             carManager.Add(car);
+            Console.WriteLine("Ekli araçlar listesi");
             ListCar(carManager);
-
-            Console.WriteLine("Detaylı görüntülemek istediniz aracın Id değerini giriniz");
-            int Id = int.Parse(Console.ReadLine());
-            Car carDetail = carManager.GetByID(Id);
-            Console.WriteLine(carDetail.Id + " Idli aracın bilgileri => " + carDetail.Description + " - " + carDetail.ModelYear + " - " + carDetail.DailyPrice+" - "+carDetail.BrandId+" - "+carDetail.ColorId+"\n");
-
-            ListCar(carManager);
-            Car updateCar = new Car();
-            Console.WriteLine("Güncellenecek aracın id değerini giriniz");
-            updateCar.Id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Brand Id giriniz");
-            updateCar.BrandId = int.Parse(Console.ReadLine());
-            Console.WriteLine("Color Id giriniz");
-            updateCar.ColorId = int.Parse(Console.ReadLine());
-            Console.WriteLine("Günlük ücretini giriniz");
-            updateCar.DailyPrice = int.Parse(Console.ReadLine());
-            Console.WriteLine("Model yılını giriniz");
-            updateCar.ModelYear = int.Parse(Console.ReadLine());
-            Console.WriteLine("Araçla ilgili açıklama giriniz");
-            updateCar.Description = Console.ReadLine();
-            carManager.Update(updateCar);
-            ListCar(carManager);
-
-            Car deleteCar = new Car();
-            Console.WriteLine("Silinecek aracın id değerini giriniz");
-            deleteCar.Id = int.Parse(Console.ReadLine());
-            carManager.Delete(deleteCar);
-            ListCar(carManager);
+            Console.WriteLine("\n"+brand.BrandName+" markasına göre sıralama");
+            foreach (var carByBrand in carManager.GetCarsByBrandId(brand.Id))
+            {
+                Console.WriteLine(carByBrand.Description + " - " + carByBrand.ModelYear + " - " + carByBrand.DailyPrice + "\n");
+            }
+            Console.WriteLine("\n" + color.ColorName+" rengine göre sıralama");
+            foreach (var carByBrand in carManager.GetCarsByColorId(color.Id))
+            {
+                Console.WriteLine(carByBrand.Description + " - " + carByBrand.ModelYear + " - " + carByBrand.DailyPrice + "\n");
+            }
 
         }
 
