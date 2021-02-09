@@ -10,3 +10,5 @@ C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.csproj.CopyComplete
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\bin\Debug\netstandard2.1\Core.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\DataAccess\bin\Debug\netstandard2.1\Core.pdb

@@ -7,3 +7,6 @@ C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\ne
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\netstandard2.1\Entities.csproj.CoreCompileInputs.cache
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\netstandard2.1\Entities.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\netstandard2.1\Entities.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\bin\Debug\netstandard2.1\Core.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\bin\Debug\netstandard2.1\Core.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\netstandard2.1\Entities.csproj.CopyComplete

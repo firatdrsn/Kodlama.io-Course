@@ -1,0 +1,9 @@
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\bin\Debug\netstandard2.1\Core.deps.json
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\bin\Debug\netstandard2.1\Core.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\bin\Debug\netstandard2.1\Core.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\obj\Debug\netstandard2.1\Core.csprojAssemblyReference.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\obj\Debug\netstandard2.1\Core.AssemblyInfoInputs.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\obj\Debug\netstandard2.1\Core.AssemblyInfo.cs
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\obj\Debug\netstandard2.1\Core.csproj.CoreCompileInputs.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\obj\Debug\netstandard2.1\Core.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Core\obj\Debug\netstandard2.1\Core.pdb
