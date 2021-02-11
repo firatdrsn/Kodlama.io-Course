@@ -26,10 +26,7 @@ namespace Business.Concrete
                return new SuccessResult(Messages.BrandAdded);
 
             }
-            else
-            {
-                return new ErrorResult(Messages.SameBrandAvailable);
-            }
+            return new ErrorResult(Messages.SameBrandAvailable);
         }
 
         public IResult Delete(Brand brand)
@@ -40,10 +37,7 @@ namespace Business.Concrete
                 _brandDal.Delete(brand);
                 return new SuccessResult(Messages.BrandDeleted);
             }
-            else
-            {
-                return new ErrorResult(Messages.IdInvalid);
-            }
+            return new ErrorResult(Messages.IdInvalid);
         }
 
         public IDataResult<List<Brand>> GetAll()
@@ -53,10 +47,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<List<Brand>>(brandList);
             }
-            else
-            {
-                return new ErrorDataResult<List<Brand>>(Messages.NoRecordsToList);
-            }
+            return new ErrorDataResult<List<Brand>>(Messages.NoRecordsToList);
         }
 
         public IDataResult<Brand> GetByID(int Id)
@@ -66,10 +57,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<Brand>(brand);
             }
-            else
-            {
-                return new ErrorDataResult<Brand>(Messages.IdInvalid);
-            }
+            return new ErrorDataResult<Brand>(Messages.IdInvalid);
         }
 
         public IResult Update(Brand brand)
@@ -80,10 +68,7 @@ namespace Business.Concrete
                 _brandDal.Update(brand);
                 return new SuccessResult(Messages.BrandUpdated);
             }
-            else
-            {
-                return new ErrorResult(Messages.IdInvalid);
-            }
+            return new ErrorResult(Messages.IdInvalid);
         }
     }
 }

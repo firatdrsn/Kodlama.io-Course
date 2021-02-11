@@ -27,12 +27,8 @@ namespace Business.Concrete
                 _carDal.Add(car);
                 return new SuccessResult(Messages.CarAdded);
             }
-            else
-            {
-                //throw new Exception("Araç Adı 2 karakterden kısa veya günlük ücreti 0 veya altında");
-                return new ErrorResult(Messages.CarNameOrDailPriceInvalid);
-            }
-
+            //throw new Exception("Araç Adı 2 karakterden kısa veya günlük ücreti 0 veya altında");
+            return new ErrorResult(Messages.CarNameOrDailPriceInvalid);
         }
 
         public IResult Delete(Car car)
@@ -43,10 +39,7 @@ namespace Business.Concrete
                 _carDal.Delete(car);
                 return new SuccessResult(Messages.CarDeleted);
             }
-            else
-            {
-                return new ErrorResult(Messages.IdInvalid);
-            }
+            return new ErrorResult(Messages.IdInvalid);
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -56,10 +49,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<List<Car>>(carListResult);
             }
-            else
-            {
-                return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
-            }
+            return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
         }
 
         public IDataResult<Car> GetByID(int Id)
@@ -69,10 +59,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<Car>(carResult);
             }
-            else
-            {
-                return new ErrorDataResult<Car>(Messages.IdInvalid);
-            }
+            return new ErrorDataResult<Car>(Messages.IdInvalid);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
@@ -82,10 +69,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<List<CarDetailDto>>(carDtoResult);
             }
-            else
-            {
-                return new ErrorDataResult<List<CarDetailDto>>(Messages.NoRecordsToList);
-            }
+            return new ErrorDataResult<List<CarDetailDto>>(Messages.NoRecordsToList);
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int Id)
@@ -95,10 +79,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<List<Car>>(carListResult);
             }
-            else
-            {
-                return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
-            }
+            return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
         }
 
         public IDataResult<List<Car>> GetCarsByColorId(int Id)
@@ -108,10 +89,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<List<Car>>(carListResult);
             }
-            else
-            {
-                return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
-            }
+            return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
         }
 
         public IResult Update(Car car)
@@ -122,10 +100,7 @@ namespace Business.Concrete
                 _carDal.Update(car);
                 return new SuccessResult(Messages.CarUpdated);
             }
-            else
-            {
-                return new ErrorResult(Messages.IdInvalid);
-            }
+            return new ErrorResult(Messages.IdInvalid);
         }
     }
 }

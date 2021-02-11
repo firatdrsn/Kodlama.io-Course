@@ -25,10 +25,7 @@ namespace Business.Concrete
                 _colorDal.Add(color);
                 return new SuccessResult(Messages.ColorAdded);
             }
-            else
-            {
-                return new ErrorResult(Messages.SameColorAvailable);
-            }
+            return new ErrorResult(Messages.SameColorAvailable);
         }
 
         public IResult Delete(Color color)
@@ -39,10 +36,7 @@ namespace Business.Concrete
                 _colorDal.Delete(color);
                 return new SuccessResult(Messages.ColorDeleted);
             }
-            else
-            {
-                return new ErrorResult(Messages.IdInvalid);
-            }
+            return new ErrorResult(Messages.IdInvalid);
         }
 
         public IDataResult<List<Color>> GetAll()
@@ -52,10 +46,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<List<Color>>(colorList);
             }
-            else
-            {
-                return new ErrorDataResult<List<Color>>(Messages.NoRecordsToList);
-            }
+            return new ErrorDataResult<List<Color>>(Messages.NoRecordsToList);
         }
 
         public IDataResult<Color> GetByID(int Id)
@@ -65,10 +56,7 @@ namespace Business.Concrete
             {
                 return new SuccessDataResult<Color>(color);
             }
-            else
-            {
-                return new ErrorDataResult<Color>(Messages.IdInvalid);
-            }
+            return new ErrorDataResult<Color>(Messages.IdInvalid);
         }
 
         public IResult Update(Color color)
@@ -79,10 +67,7 @@ namespace Business.Concrete
                 _colorDal.Update(color);
                 return new SuccessResult(Messages.ColorUpdated);
             }
-            else
-            {
-                return new ErrorResult(Messages.IdInvalid);
-            }
+            return new ErrorResult(Messages.IdInvalid);
         }
     }
 }
