@@ -14,7 +14,6 @@ namespace ConsoleUI
         static ColorManager colorManager = new ColorManager(new EfColorDal());
         static void Main(string[] args)
         {
-
             int menu = 1;
             while (menu != 0)
             {
@@ -38,8 +37,6 @@ namespace ConsoleUI
                         break;
                 }
             }
-
-
         }
         private static void BrandMenu()
         {
@@ -54,7 +51,8 @@ namespace ConsoleUI
                         Console.WriteLine("Yeni Markayı giriniz");
                         Brand brand = new Brand();
                         brand.BrandName = Console.ReadLine();
-                        brandManager.Add(brand);
+                        //brandManager.Add(brand);
+                        Console.WriteLine(brandManager.Add(brand).Message);
                         break;
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz markanın Idsini giriniz");
@@ -63,14 +61,14 @@ namespace ConsoleUI
                         updateToBrand.Id = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Güncel marka adını giriniz");
                         updateToBrand.BrandName = Console.ReadLine();
-                        brandManager.Update(updateToBrand);
+                        Console.WriteLine(brandManager.Update(updateToBrand).Message);
                         break;
                     case 3:
                         Console.WriteLine("Silmek istediğiniz markanın Idsini giriniz");
                         BrandWriteList();
                         Brand deleteToBrand = new Brand();
                         deleteToBrand.Id = Convert.ToInt32(Console.ReadLine());
-                        brandManager.Delete(deleteToBrand);
+                        Console.WriteLine(brandManager.Delete(deleteToBrand).Message);
                         break;
                     case 4:
                         Console.WriteLine("\nMarkalar");
@@ -98,7 +96,7 @@ namespace ConsoleUI
                         Console.WriteLine("Yeni Renk giriniz");
                         Color color = new Color();
                         color.ColorName = Console.ReadLine();
-                        colorManager.Add(color);
+                        Console.WriteLine(colorManager.Add(color).Message);
                         break;
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz markanın Idsini giriniz");
@@ -107,14 +105,14 @@ namespace ConsoleUI
                         updateToColor.Id = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Güncel Renk bilgisini giriniz");
                         updateToColor.ColorName = Console.ReadLine();
-                        colorManager.Update(updateToColor);
+                        Console.WriteLine(colorManager.Update(updateToColor).Message);
                         break;
                     case 3:
                         Console.WriteLine("Silmek istediğiniz renk Idsini giriniz");
                         ColorWriteList();
                         Color deleteToColor = new Color();
                         deleteToColor.Id = Convert.ToInt32(Console.ReadLine());
-                        colorManager.Delete(deleteToColor);
+                        Console.WriteLine(colorManager.Delete(deleteToColor).Message);
                         break;
                     case 4:
                         Console.WriteLine("\nRenkler");
@@ -133,7 +131,7 @@ namespace ConsoleUI
             int carMenu = 1;
             while (carMenu != 0)
             {
-                Console.WriteLine("Araç eklemek için 1'e basınız\nAraç güncellemek için 2'ye basınız\nAraç silmek için 3'e basınız\nAraçları listelemek için 4'e basınız\nAraçları markaya listelemek için 5'e basınız\nAraçları renge göre listelemek için 6'ya basınız\nBir üst menüye geçiş yapmak için 0'a basınız");
+                Console.WriteLine("Araç eklemek için 1'e basınız\nAraç güncellemek için 2'ye basınız\nAraç silmek için 3'e basınız\nAraçları listelemek için 4'e basınız\nAraçları markaya göre listelemek için 5'e basınız\nAraçları renge göre listelemek için 6'ya basınız\nBir üst menüye geçiş yapmak için 0'a basınız");
                 carMenu = int.Parse(Console.ReadLine());
                 switch (carMenu)
                 {
@@ -151,7 +149,7 @@ namespace ConsoleUI
                         car.ModelYear = int.Parse(Console.ReadLine());
                         Console.WriteLine("Araçla ilgili açıklama giriniz");
                         car.Description = Console.ReadLine();
-                        carManager.Add(car);
+                        Console.WriteLine(carManager.Add(car).Message);
                         break;
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz aracın Idsini giriniz");
@@ -170,14 +168,14 @@ namespace ConsoleUI
                         updateToCar.ModelYear = int.Parse(Console.ReadLine());
                         Console.WriteLine("Güncel Araç açıklamasını giriniz");
                         updateToCar.Description = Console.ReadLine();
-                        carManager.Update(updateToCar);
+                        Console.WriteLine(carManager.Update(updateToCar).Message);
                         break;
                     case 3:
                         Console.WriteLine("Silmek istediğiniz aracın Idsini giriniz");
                         CarWriteList();
                         Car deleteToCar = new Car();
                         deleteToCar.Id = Convert.ToInt32(Console.ReadLine());
-                        carManager.Delete(deleteToCar);
+                        Console.WriteLine(carManager.Delete(deleteToCar).Message);
                         break;
                     case 4:
                         Console.WriteLine("\nAraçlar");
@@ -206,47 +204,88 @@ namespace ConsoleUI
 
         private static void BrandWriteList()
         {
-            foreach (var itemBrand in brandManager.GetAll())
+            try
             {
-                Console.WriteLine(itemBrand.Id + " - " + itemBrand.BrandName);
+                foreach (var itemBrand in brandManager.GetAll().Data)
+                {
+                    Console.WriteLine(itemBrand.Id + " - " + itemBrand.BrandName);
+                }
+            }
+            catch
+            {
+                Console.WriteLine(brandManager.GetAll().Message);
             }
         }
         private static void ColorWriteList()
         {
-            foreach (var itemBrand in colorManager.GetAll())
+            try
             {
-                Console.WriteLine(itemBrand.Id + " - " + itemBrand.ColorName);
+                foreach (var itemBrand in colorManager.GetAll().Data)
+                {
+                    Console.WriteLine(itemBrand.Id + " - " + itemBrand.ColorName);
+                }
+            }
+            catch
+            {
+                Console.WriteLine(colorManager.GetAll().Message);
             }
         }
         private static void CarWriteList()
         {
-            foreach (var carList in carManager.GetAll())
+            try
             {
-                Console.WriteLine(carList.Id + " - " + carList.CarName + " - " + carList.Description + " - " + carList.ModelYear + " - " + carList.DailyPrice + "\n");
+                foreach (var carList in carManager.GetAll().Data)
+                {
+                    Console.WriteLine(carList.Id + " - " + carList.CarName + " - " + carList.Description + " - " + carList.ModelYear + " - " + carList.DailyPrice + "\n");
+                }
             }
+            catch
+            {
+                Console.WriteLine(carManager.GetAll().Message);
+            }
+
         }
         private static void CarWriteDetailList()
         {
-            foreach (var carDetail in carManager.GetCarDetails())
+            try
             {
-                Console.WriteLine(carDetail.CarId + " - " + carDetail.CarName + " - " + carDetail.BrandName + " - " + carDetail.ColorName + " - " + carDetail.DailyPrice);
+                foreach (var carDetail in carManager.GetCarDetails().Data)
+                {
+                    Console.WriteLine(carDetail.CarId + " - " + carDetail.CarName + " - " + carDetail.BrandName + " - " + carDetail.ColorName + " - " + carDetail.DailyPrice);
+                }
+            }
+            catch
+            {
+                Console.WriteLine(carManager.GetCarDetails().Message);
             }
         }
         private static void CarWriteByColor(int colorId)
         {
-            Console.WriteLine(colorManager.GetByID(colorId).ColorName + " renkli araçlar");
-            foreach (var carByColor in carManager.GetCarsByColorId(colorId))
+            try
             {
-                Console.WriteLine(carByColor.CarName + " - " + carByColor.Description + " - " + carByColor.ModelYear + " - " + carByColor.DailyPrice + "\n");
+                foreach (var carByColor in carManager.GetCarsByColorId(colorId).Data)
+                {
+                    Console.WriteLine(carByColor.CarName + " - " + carByColor.Description + " - " + carByColor.ModelYear + " - " + carByColor.DailyPrice + "\n");
+                }
+            }
+            catch
+            {
+                Console.WriteLine(colorManager.GetByID(colorId).Message);
             }
         }
 
         private static void CarWriteByBrand(int brandId)
         {
-            Console.WriteLine(brandManager.GetByID(brandId).BrandName + " marka araçlar");
-            foreach (var carByBrand in carManager.GetCarsByBrandId(brandId))
+            try
             {
-                Console.WriteLine(carByBrand.CarName + " - " + carByBrand.Description + " - " + carByBrand.ModelYear + " - " + carByBrand.DailyPrice + "\n");
+                foreach (var carByBrand in carManager.GetCarsByBrandId(brandId).Data)
+                {
+                    Console.WriteLine(carByBrand.CarName + " - " + carByBrand.Description + " - " + carByBrand.ModelYear + " - " + carByBrand.DailyPrice + "\n");
+                }
+            }
+            catch
+            {
+                Console.WriteLine(carManager.GetCarsByBrandId(brandId).Message);
             }
         }
     }

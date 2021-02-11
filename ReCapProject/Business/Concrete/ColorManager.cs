@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,29 +18,71 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public void Add(Color color)
+        public IResult Add(Color color)
         {
-            _colorDal.Add(color);
+            if (_colorDal.GetAll(c=>c.ColorName==color.ColorName).Count==0)
+            {
+                _colorDal.Add(color);
+                return new SuccessResult(Messages.ColorAdded);
+            }
+            else
+            {
+                return new ErrorResult(Messages.SameColorAvailable);
+            }
         }
 
-        public void Delete(Color color)
+        public IResult Delete(Color color)
         {
-            _colorDal.Delete(color);
+            Color deletedColor = _colorDal.GetById(c=>c.Id==color.Id);
+            if (deletedColor!=null)
+            {
+                _colorDal.Delete(color);
+                return new SuccessResult(Messages.ColorDeleted);
+            }
+            else
+            {
+                return new ErrorResult(Messages.IdInvalid);
+            }
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colorDal.GetAll();
+            List<Color> colorList = _colorDal.GetAll();
+            if (colorList.Count>0)
+            {
+                return new SuccessDataResult<List<Color>>(colorList);
+            }
+            else
+            {
+                return new ErrorDataResult<List<Color>>(Messages.NoRecordsToList);
+            }
         }
 
-        public Color GetByID(int Id)
+        public IDataResult<Color> GetByID(int Id)
         {
-            return _colorDal.GetById(c => c.Id == Id);
+            Color color = _colorDal.GetById(c => c.Id == Id);
+            if (color!=null)
+            {
+                return new SuccessDataResult<Color>(color);
+            }
+            else
+            {
+                return new ErrorDataResult<Color>(Messages.IdInvalid);
+            }
         }
 
-        public void Update(Color color)
+        public IResult Update(Color color)
         {
-            _colorDal.Update(color);
+            Color updatedColor = _colorDal.GetById(c=>c.Id==color.Id);
+            if (updatedColor!=null)
+            {
+                _colorDal.Update(color);
+                return new SuccessResult(Messages.ColorUpdated);
+            }
+            else
+            {
+                return new ErrorResult(Messages.IdInvalid);
+            }
         }
     }
 }
