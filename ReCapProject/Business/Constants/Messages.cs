@@ -21,6 +21,14 @@ namespace Business.Constants
         public static string ColorUpdated = "Renk güncellendi";
         public static string SameColorAvailable = "Aynı renk mevcut";
 
+        public static string UserAdded = "Kullanıcı eklendi";
+        public static string UserDeleted = "Kullanıcı Silindi";
+        public static string UserUpdated = "Kullanıcı güncellendi";
+
+        public static string CustomerAdded = "Müşteri eklendi";
+        public static string CustomerDeleted = "Müşteri Silindi";
+        public static string CustomerUpdated = "Müşteri güncellendi";
+
         public static string NoRecordsToList = "Listelenecek kayıt yok";
         public static string IdInvalid = "Geçersiz Id";
     }
