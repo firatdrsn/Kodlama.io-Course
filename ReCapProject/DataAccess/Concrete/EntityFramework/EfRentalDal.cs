@@ -6,12 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
     public class EfRentalDal : EfEntityRepositoryBase<Rental, RentacarContext>, IRentalDal
     {
-        public List<RentalDetailDto> GetRentalDetails()
+        public List<RentalDetailDto> GetRentalDetails(Expression<Func<RentalDetailDto, bool>> filter = null)
         {
             using (RentacarContext context = new RentacarContext())
             {
@@ -22,8 +24,8 @@ namespace DataAccess.Concrete.EntityFramework
                              on r.CustomerId equals ctr.Id
                              join u in context.Users
                              on ctr.UserId equals u.Id
-                             select new RentalDetailDto { RentalId=r.Id,CarName=c.CarName,UserName=u.UserName,FirstName=u.FirstName,LastName=u.LastName,CompanyName=ctr.CompanyName,RentDate=r.RentDate.ToString(),ReturnDate= r.ReturnDate==null ? "" : r.ReturnDate.Value.ToString() };
-                return result.ToList();
+                             select new RentalDetailDto { RentalId = r.Id, CarId = c.Id, CarName = c.CarName, UserName = u.UserName, FirstName = u.FirstName, LastName = u.LastName, CompanyName = ctr.CompanyName, RentDate = r.RentDate, ReturnDate = r.ReturnDate };
+                return filter == null ? result.ToList() : result.Where(filter).ToList();
             }
         }
     }

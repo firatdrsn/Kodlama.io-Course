@@ -20,7 +20,7 @@ namespace ConsoleUI
             int menu = 1;
             while (menu != 0)
             {
-                Console.WriteLine("Marka işlemleri için 1'e basınız\nRenk işlemleri için 2'ye basınız\nAraç işlemleri için 3'e basınız\nKullanıcı işlemleri için 4'e basınız\nMüşteri işlemleri için 5'e basınız\nKiralama işlemleri için 6'ya basınız\nÇıkış yapmak için 0'a basınız");
+                Console.WriteLine("Marka işlemleri için 1'e basınız\nRenk işlemleri için 2'ye basınız\nAraç işlemleri için 3'e basınız\nKullanıcı işlemleri için 4'e basınız\nŞirket işlemleri için 5'e basınız\nKiralama işlemleri için 6'ya basınız\nÇıkış yapmak için 0'a basınız");
                 menu = int.Parse(Console.ReadLine());
                 switch (menu)
                 {
@@ -69,8 +69,12 @@ namespace ConsoleUI
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz markanın Idsini giriniz");
                         BrandWriteList();
-                        Brand updateToBrand = new Brand();
-                        updateToBrand.Id = Convert.ToInt32(Console.ReadLine());
+                        Brand updateToBrand = brandManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        if(updateToBrand==null)
+                        {
+                            Console.WriteLine("Geçersiz Id\n");
+                            break;
+                        }
                         Console.WriteLine("Güncel marka adını giriniz");
                         updateToBrand.BrandName = Console.ReadLine();
                         Console.WriteLine(brandManager.Update(updateToBrand).Message);
@@ -78,8 +82,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz markanın Idsini giriniz");
                         BrandWriteList();
-                        Brand deleteToBrand = new Brand();
-                        deleteToBrand.Id = Convert.ToInt32(Console.ReadLine());
+                        Brand deleteToBrand = brandManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(brandManager.Delete(deleteToBrand).Message);
                         break;
                     case 4:
@@ -121,8 +124,12 @@ namespace ConsoleUI
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz kullanıcının Idsini giriniz");
                         UserWriteList();
-                        User updateToUser = new User();
-                        updateToUser.Id = Convert.ToInt32(Console.ReadLine());
+                        User updateToUser = userManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        if (updateToUser==null)
+                        {
+                            Console.WriteLine("Gerçersiz Id");
+                            break;
+                        }
                         Console.WriteLine("Şifrenizi giriniz");
                         updateToUser.Password = Console.ReadLine();
                         Console.WriteLine("Adınızı giriniz");
@@ -136,8 +143,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz kullanıcının Idsini giriniz");
                         UserWriteList();
-                        User deleteToUser = new User();
-                        deleteToUser.Id = Convert.ToInt32(Console.ReadLine());
+                        User deleteToUser = userManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(userManager.Delete(deleteToUser).Message);
                         break;
                     case 4:
@@ -157,7 +163,7 @@ namespace ConsoleUI
             int customerMenu = 1;
             while (customerMenu != 0)
             {
-                Console.WriteLine("Müşteri eklemek için 1'e basınız\nMüşteri güncellemek için 2'ye basınız\nMüşteri silmek için 3'e basınız\nMüşterileri listelemek için 4'e basınız\nBir üst menüye geçiş yapmak için 0'a basınız");
+                Console.WriteLine("Şirket eklemek için 1'e basınız\nŞirket güncellemek için 2'ye basınız\nŞirket silmek için 3'e basınız\nŞirketleri listelemek için 4'e basınız\nBir üst menüye geçiş yapmak için 0'a basınız");
                 customerMenu = int.Parse(Console.ReadLine());
                 switch (customerMenu)
                 {
@@ -165,29 +171,38 @@ namespace ConsoleUI
                         UserWriteList();
                         Console.WriteLine("Şirketini yazacağınız kullanıcının Idsini yazınız");
                         Customer customer = new Customer();
-                        customer.UserId = Convert.ToInt32(Console.ReadLine());
+                        int userId= Convert.ToInt32(Console.ReadLine());
+                        if (userManager.GetByID(userId).Data==null)
+                        {
+                            Console.WriteLine("Geçersiz kullanıcı idsi");
+                            break;
+                        }
+                        customer.UserId = userManager.GetByID(userId).Data.Id;
                         Console.WriteLine("Şirket adını giriniz");
                         customer.CompanyName = Console.ReadLine();
                         Console.WriteLine(customerManager.Add(customer).Message);
                         break;
                     case 2:
-                        Console.WriteLine("Güncellemek istediğiniz müşterinin Idsini giriniz");
+                        Console.WriteLine("Güncellemek istediğiniz şirketin Idsini giriniz");
                         CustomerWriteList();
-                        Customer updateToCustomer = new Customer();
-                        updateToCustomer.Id = Convert.ToInt32(Console.ReadLine());
+                        Customer updateToCustomer = customerManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        if (updateToCustomer==null)
+                        {
+                            Console.WriteLine("Geçersiz Id");
+                            break;
+                        }
                         Console.WriteLine("Yeni şirket adını giriniz");
                         updateToCustomer.CompanyName = Console.ReadLine();
                         Console.WriteLine(customerManager.Update(updateToCustomer).Message);
                         break;
                     case 3:
-                        Console.WriteLine("Silmek istediğiniz müşterinin Idsini giriniz");
+                        Console.WriteLine("Silmek istediğiniz şirketin Idsini giriniz");
                         CustomerWriteList();
-                        Customer deleteToCustomer = new Customer();
-                        deleteToCustomer.Id = Convert.ToInt32(Console.ReadLine());
+                        Customer deleteToCustomer = customerManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(customerManager.Delete(deleteToCustomer).Message);
                         break;
                     case 4:
-                        Console.WriteLine("\nMüşteriler");
+                        Console.WriteLine("\nŞirketler");
                         CustomerWriteList();
                         break;
                     case 0:
@@ -203,33 +218,48 @@ namespace ConsoleUI
             int customerMenu = 1;
             while (customerMenu != 0)
             {
-                Console.WriteLine("Araç kiralamak için 1'e basınız\nKiralanmış aracı teslim etmek için 2'ye basınız\nKiralanmış araçları listelemek için 3'e basınız\nBir üst menüye geçiş yapmak için 0'a basınız");
+                Console.WriteLine("Araç kiralamak için 1'e basınız\nKiralanmış aracı teslim etmek için 2'ye basınız\nKiralamaları listelemek için 3'e basınız\nBir üst menüye geçiş yapmak için 0'a basınız");
                 customerMenu = int.Parse(Console.ReadLine());
                 switch (customerMenu)
                 {
                     case 1:
                         CarWriteDetailList();
                         Console.WriteLine("Kiralanacak aracın Idsini yazınız");
-                        Rental rental = new Rental();
-                        rental.CarId = Convert.ToInt32(Console.ReadLine());
+                        int carId= Convert.ToInt32(Console.ReadLine());
                         CustomerWriteList();
                         Console.WriteLine("Kiralayacak şirketin ıdsini giriniz");
-                        rental.CustomerId = Convert.ToInt32(Console.ReadLine());
+                        int customerId= Convert.ToInt32(Console.ReadLine());
+                        if (!carManager.GetByID(carId).Success || !customerManager.GetByID(customerId).Success)
+                        {
+                            Console.WriteLine("Yanlış araç veya müşteri Idsi");
+                            break;
+                        }
+                        Rental rental = new Rental();
+                        rental.CustomerId = customerId;
+                        rental.CarId = carId;
                         Console.WriteLine("Kiralama tarihini giriniz");
                         rental.RentDate = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine(rentalManager.Add(rental).Message);
                         break;
                     case 2:
+                        UndeliveredCarsWriteList();
+                        if (!rentalManager.GetUndeliveredCarsDetails().Success)
+                        {
+                            break;
+                        }
                         Console.WriteLine("Teslim edilecek aracın Idsini giriniz");
-                        RentalWriteList();
-                        Rental updateToRental = new Rental();
-                        updateToRental.Id = Convert.ToInt32(Console.ReadLine());
+                        Rental updateToRental = rentalManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        if (updateToRental==null)
+                        {
+                            Console.WriteLine("Geçersiz Id");
+                            break;
+                        }
                         Console.WriteLine("Teslim tarihini giriniz");
                         updateToRental.ReturnDate = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine(rentalManager.Update(updateToRental).Message);
                         break;
                     case 3:
-                        Console.WriteLine("\nKiralanmış araçlar listeli");
+                        Console.WriteLine("\nKiralama listesi");
                         RentalWriteList();
                         break;
                     case 0:
@@ -256,10 +286,14 @@ namespace ConsoleUI
                         Console.WriteLine(colorManager.Add(color).Message);
                         break;
                     case 2:
-                        Console.WriteLine("Güncellemek istediğiniz markanın Idsini giriniz");
+                        Console.WriteLine("Güncellemek istediğiniz renk Idsini giriniz");
                         ColorWriteList();
-                        Color updateToColor = new Color();
-                        updateToColor.Id = Convert.ToInt32(Console.ReadLine());
+                        Color updateToColor = colorManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        if (updateToColor==null)
+                        {
+                            Console.WriteLine("Geçersiz Id");
+                            break;
+                        }
                         Console.WriteLine("Güncel Renk bilgisini giriniz");
                         updateToColor.ColorName = Console.ReadLine();
                         Console.WriteLine(colorManager.Update(updateToColor).Message);
@@ -267,8 +301,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz renk Idsini giriniz");
                         ColorWriteList();
-                        Color deleteToColor = new Color();
-                        deleteToColor.Id = Convert.ToInt32(Console.ReadLine());
+                        Color deleteToColor = colorManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(colorManager.Delete(deleteToColor).Message);
                         break;
                     case 4:
@@ -311,8 +344,12 @@ namespace ConsoleUI
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz aracın Idsini giriniz");
                         CarWriteList();
-                        Car updateToCar = new Car();
-                        updateToCar.Id = Convert.ToInt32(Console.ReadLine());
+                        Car updateToCar = carManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        if (updateToCar==null)
+                        {
+                            Console.WriteLine("Geçersiz Id");
+                            break;
+                        }
                         Console.WriteLine("Güncel Araç adı giriniz");
                         updateToCar.CarName = Console.ReadLine();
                         Console.WriteLine("Güncel Marka Idsini giriniz");
@@ -330,8 +367,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz aracın Idsini giriniz");
                         CarWriteList();
-                        Car deleteToCar = new Car();
-                        deleteToCar.Id = Convert.ToInt32(Console.ReadLine());
+                        Car deleteToCar = carManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(carManager.Delete(deleteToCar).Message);
                         break;
                     case 4:
@@ -358,7 +394,6 @@ namespace ConsoleUI
                 }
             }
         }
-
         private static void BrandWriteList()
         {
             try
@@ -377,14 +412,14 @@ namespace ConsoleUI
         {
             try
             {
-                foreach (var itemCustomer in customerManager.GetAll().Data)
+                foreach (var itemCustomer in customerManager.GetCustomerDetails().Data)
                 {
-                    Console.WriteLine(itemCustomer.Id + " - " + itemCustomer.CompanyName);
+                    Console.WriteLine(itemCustomer.Id + " - " +itemCustomer.UserName+" - "+itemCustomer.FirstName+" "+itemCustomer.LastName+" - "+ itemCustomer.CompanyName+" - "+itemCustomer.Email);
                 }
             }
             catch
             {
-                Console.WriteLine(customerManager.GetAll().Message);
+                Console.WriteLine(customerManager.GetCustomerDetails().Message);
             }
         }
         private static void UserWriteList()
@@ -393,7 +428,7 @@ namespace ConsoleUI
             {
                 foreach (var itemUser in userManager.GetAll().Data)
                 {
-                    Console.WriteLine(itemUser.Id + " - " + itemUser.UserName+" - "+ itemUser.FirstName+" "+ itemUser.LastName);
+                    Console.WriteLine(itemUser.Id + " - " + itemUser.UserName+" - "+ itemUser.FirstName+" "+ itemUser.LastName+" - "+itemUser.Email);
                 }
             }
             catch
@@ -428,7 +463,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(carManager.GetAll().Message);
             }
-
         }
         private static void CarWriteDetailList()
         {
@@ -436,7 +470,7 @@ namespace ConsoleUI
             {
                 foreach (var carDetail in carManager.GetCarDetails().Data)
                 {
-                    Console.WriteLine(carDetail.CarId + " - " + carDetail.CarName + " - " + carDetail.BrandName + " - " + carDetail.ColorName + " - " + carDetail.DailyPrice);
+                    Console.WriteLine(carDetail.CarId + " - " + carDetail.CarName + " - " + carDetail.BrandName + " - " + carDetail.ColorName + " - " + carDetail.DailyPrice+" - "+carDetail.Description);
                 }
             }
             catch
@@ -444,18 +478,33 @@ namespace ConsoleUI
                 Console.WriteLine(carManager.GetCarDetails().Message);
             }
         }
+
         private static void RentalWriteList()
         {
             try
             {
                 foreach (var rentalDetail in rentalManager.GetRentalDetails().Data)
                 {
-                    Console.WriteLine(rentalDetail.CarName + " - " + rentalDetail.CompanyName + " - " + rentalDetail.FirstName + " " + rentalDetail.LastName + " - " + rentalDetail.RentDate+" - "+ rentalDetail.ReturnDate);
+                    Console.WriteLine(rentalDetail.RentalId+" - "+rentalDetail.CarName + " - " + rentalDetail.CompanyName + " - " + rentalDetail.FirstName + " " + rentalDetail.LastName + " - " + rentalDetail.RentDate+" - "+ rentalDetail.ReturnDate);
                 }
             }
             catch
             {
                 Console.WriteLine(rentalManager.GetRentalDetails().Message);
+            }
+        }
+        private static void UndeliveredCarsWriteList()
+        {
+            try
+            {
+                foreach (var rentalDetail in rentalManager.GetUndeliveredCarsDetails().Data)
+                {
+                    Console.WriteLine(rentalDetail.RentalId + " - " + rentalDetail.CarName + " - " + rentalDetail.CompanyName + " - " + rentalDetail.FirstName + " " + rentalDetail.LastName + " - " + rentalDetail.RentDate + " - " + rentalDetail.ReturnDate);
+                }
+            }
+            catch
+            {
+                Console.WriteLine(rentalManager.GetUndeliveredCarsDetails().Message);
             }
         }
         private static void CarWriteByColor(int colorId)
@@ -469,7 +518,7 @@ namespace ConsoleUI
             }
             catch
             {
-                Console.WriteLine(colorManager.GetByID(colorId).Message);
+                Console.WriteLine(carManager.GetCarsByColorId(colorId).Message);
             }
         }
 

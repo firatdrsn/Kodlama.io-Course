@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,30 +20,50 @@ namespace Business.Concrete
 
         public IResult Add(User service)
         {
-            _userDal.Add(service);
-            return new SuccessResult();
+            if (_userDal.GetAll(u => u.UserName == service.UserName).Count == 0)
+            {
+                _userDal.Add(service);
+                return new SuccessResult(Messages.RecordAdded);
+            }
+            return new ErrorResult(Messages.SameUsernameAvailable);
         }
 
         public IResult Delete(User service)
         {
-            _userDal.Delete(service);
-            return new SuccessResult();
+            if (service!=null)
+            {
+                _userDal.Delete(service);
+                return new SuccessResult(Messages.RecordDeleted);
+            }
+            return new ErrorResult(Messages.IdInvalid);
         }
 
         public IDataResult<List<User>> GetAll()
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll()," listelendi");
+            if (_userDal.GetAll().Count > 0)
+            {
+                return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.RecordsListed);
+            }
+            return new ErrorDataResult<List<User>>(Messages.NoRecordsToList);
         }
 
         public IDataResult<User> GetByID(int Id)
         {
-            return new SuccessDataResult<User>(_userDal.GetById(u => u.Id == Id));
+            if (_userDal.GetById(u => u.Id == Id) != null)
+            {
+                return new SuccessDataResult<User>(_userDal.GetById(u => u.Id == Id), Messages.RecordFound);
+            }
+            return new ErrorDataResult<User>(Messages.IdInvalid);
         }
 
         public IResult Update(User service)
         {
-            _userDal.Update(service);
-            return new SuccessResult();
+            if (service!=null)
+            {
+                _userDal.Update(service);
+                return new SuccessResult(Messages.RecordUpdated);
+            }
+            return new ErrorResult(Messages.IdInvalid);
         }
     }
 }

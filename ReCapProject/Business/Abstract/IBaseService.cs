@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface IBaseService<T>where T:class,IEntity,new()
+    public interface IBaseService<T> where T : class, IEntity, new()
     {
         IResult Add(T service);
         IResult Update(T service);
