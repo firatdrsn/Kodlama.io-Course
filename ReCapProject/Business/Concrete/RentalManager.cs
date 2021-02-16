@@ -39,7 +39,7 @@ namespace Business.Concrete
         }
         public IResult Update(Rental service)
         {
-            if (service != null && service.ReturnDate >= service.RentDate)
+            if (service != null && service.ReturnDate >= service.RentDate && GetById(service.Id).Success)
             {
                 _rentalDal.Update(service);
                 return new SuccessResult(Messages.RecordUpdated);
@@ -49,7 +49,7 @@ namespace Business.Concrete
 
         public IResult Delete(Rental service)
         {
-            if (service != null)
+            if (service != null && GetById(service.Id).Success)
             {
                 _rentalDal.Delete(service);
                 return new SuccessResult(Messages.RecordDeleted);
@@ -66,7 +66,7 @@ namespace Business.Concrete
             return new ErrorDataResult<List<Rental>>(Messages.NoRecordsToList);
         }
 
-        public IDataResult<Rental> GetByID(int Id)
+        public IDataResult<Rental> GetById(int Id)
         {
             if (_rentalDal.GetById(r => r.Id == Id) != null)
             {

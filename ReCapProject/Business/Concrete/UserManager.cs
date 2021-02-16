@@ -30,7 +30,7 @@ namespace Business.Concrete
 
         public IResult Delete(User service)
         {
-            if (service!=null)
+            if (service!=null && GetById(service.Id).Success)
             {
                 _userDal.Delete(service);
                 return new SuccessResult(Messages.RecordDeleted);
@@ -47,7 +47,7 @@ namespace Business.Concrete
             return new ErrorDataResult<List<User>>(Messages.NoRecordsToList);
         }
 
-        public IDataResult<User> GetByID(int Id)
+        public IDataResult<User> GetById(int Id)
         {
             if (_userDal.GetById(u => u.Id == Id) != null)
             {
@@ -58,7 +58,7 @@ namespace Business.Concrete
 
         public IResult Update(User service)
         {
-            if (service!=null)
+            if (service!=null && GetById(service.Id).Success)
             {
                 _userDal.Update(service);
                 return new SuccessResult(Messages.RecordUpdated);

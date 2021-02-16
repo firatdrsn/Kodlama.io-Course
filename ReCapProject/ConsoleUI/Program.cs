@@ -69,7 +69,7 @@ namespace ConsoleUI
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz markanın Idsini giriniz");
                         BrandWriteList();
-                        Brand updateToBrand = brandManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Brand updateToBrand = brandManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         if(updateToBrand==null)
                         {
                             Console.WriteLine("Geçersiz Id\n");
@@ -82,7 +82,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz markanın Idsini giriniz");
                         BrandWriteList();
-                        Brand deleteToBrand = brandManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Brand deleteToBrand = brandManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(brandManager.Delete(deleteToBrand).Message);
                         break;
                     case 4:
@@ -124,7 +124,7 @@ namespace ConsoleUI
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz kullanıcının Idsini giriniz");
                         UserWriteList();
-                        User updateToUser = userManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        User updateToUser = userManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         if (updateToUser==null)
                         {
                             Console.WriteLine("Gerçersiz Id");
@@ -143,7 +143,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz kullanıcının Idsini giriniz");
                         UserWriteList();
-                        User deleteToUser = userManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        User deleteToUser = userManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(userManager.Delete(deleteToUser).Message);
                         break;
                     case 4:
@@ -172,12 +172,12 @@ namespace ConsoleUI
                         Console.WriteLine("Şirketini yazacağınız kullanıcının Idsini yazınız");
                         Customer customer = new Customer();
                         int userId= Convert.ToInt32(Console.ReadLine());
-                        if (userManager.GetByID(userId).Data==null)
+                        if (userManager.GetById(userId).Data==null)
                         {
                             Console.WriteLine("Geçersiz kullanıcı idsi");
                             break;
                         }
-                        customer.UserId = userManager.GetByID(userId).Data.Id;
+                        customer.UserId = userManager.GetById(userId).Data.Id;
                         Console.WriteLine("Şirket adını giriniz");
                         customer.CompanyName = Console.ReadLine();
                         Console.WriteLine(customerManager.Add(customer).Message);
@@ -185,7 +185,7 @@ namespace ConsoleUI
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz şirketin Idsini giriniz");
                         CustomerWriteList();
-                        Customer updateToCustomer = customerManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Customer updateToCustomer = customerManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         if (updateToCustomer==null)
                         {
                             Console.WriteLine("Geçersiz Id");
@@ -198,7 +198,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz şirketin Idsini giriniz");
                         CustomerWriteList();
-                        Customer deleteToCustomer = customerManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Customer deleteToCustomer = customerManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(customerManager.Delete(deleteToCustomer).Message);
                         break;
                     case 4:
@@ -229,7 +229,7 @@ namespace ConsoleUI
                         CustomerWriteList();
                         Console.WriteLine("Kiralayacak şirketin ıdsini giriniz");
                         int customerId= Convert.ToInt32(Console.ReadLine());
-                        if (!carManager.GetByID(carId).Success || !customerManager.GetByID(customerId).Success)
+                        if (!carManager.GetById(carId).Success || !customerManager.GetById(customerId).Success)
                         {
                             Console.WriteLine("Yanlış araç veya müşteri Idsi");
                             break;
@@ -248,7 +248,7 @@ namespace ConsoleUI
                             break;
                         }
                         Console.WriteLine("Teslim edilecek aracın Idsini giriniz");
-                        Rental updateToRental = rentalManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Rental updateToRental = rentalManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         if (updateToRental==null)
                         {
                             Console.WriteLine("Geçersiz Id");
@@ -288,7 +288,7 @@ namespace ConsoleUI
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz renk Idsini giriniz");
                         ColorWriteList();
-                        Color updateToColor = colorManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Color updateToColor = colorManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         if (updateToColor==null)
                         {
                             Console.WriteLine("Geçersiz Id");
@@ -301,7 +301,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz renk Idsini giriniz");
                         ColorWriteList();
-                        Color deleteToColor = colorManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Color deleteToColor = colorManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(colorManager.Delete(deleteToColor).Message);
                         break;
                     case 4:
@@ -344,7 +344,7 @@ namespace ConsoleUI
                     case 2:
                         Console.WriteLine("Güncellemek istediğiniz aracın Idsini giriniz");
                         CarWriteList();
-                        Car updateToCar = carManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Car updateToCar = carManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         if (updateToCar==null)
                         {
                             Console.WriteLine("Geçersiz Id");
@@ -367,7 +367,7 @@ namespace ConsoleUI
                     case 3:
                         Console.WriteLine("Silmek istediğiniz aracın Idsini giriniz");
                         CarWriteList();
-                        Car deleteToCar = carManager.GetByID(Convert.ToInt32(Console.ReadLine())).Data;
+                        Car deleteToCar = carManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
                         Console.WriteLine(carManager.Delete(deleteToCar).Message);
                         break;
                     case 4:

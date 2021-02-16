@@ -30,7 +30,7 @@ namespace Business.Concrete
 
         public IResult Delete(Color color)
         {
-            if (color != null)
+            if (color != null && GetById(color.Id).Success)
             {
                 _colorDal.Delete(color);
                 return new SuccessResult(Messages.RecordDeleted);
@@ -47,7 +47,7 @@ namespace Business.Concrete
             return new ErrorDataResult<List<Color>>(Messages.NoRecordsToList);
         }
 
-        public IDataResult<Color> GetByID(int Id)
+        public IDataResult<Color> GetById(int Id)
         {
             if (_colorDal.GetAll(c => c.Id == Id).Count > 0)
             {
@@ -58,7 +58,7 @@ namespace Business.Concrete
 
         public IResult Update(Color color)
         {
-            if (color != null)
+            if (color != null && GetById(color.Id).Success)
             {
                 _colorDal.Update(color);
                 return new SuccessResult(Messages.RecordUpdated);

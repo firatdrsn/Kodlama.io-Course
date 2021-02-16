@@ -12,6 +12,6 @@ namespace Business.Abstract
         IResult Update(T service);
         IResult Delete(T service);
         IDataResult<List<T>> GetAll();
-        IDataResult<T> GetByID(int Id);
+        IDataResult<T> GetById(int Id);
     }
 }

@@ -31,7 +31,7 @@ namespace Business.Concrete
 
         public IResult Delete(Brand brand)
         {
-            if (brand != null)
+            if (brand != null && GetById(brand.Id).Success)
             {
                 _brandDal.Delete(brand);
                 return new SuccessResult(Messages.RecordDeleted);
@@ -48,7 +48,7 @@ namespace Business.Concrete
             return new ErrorDataResult<List<Brand>>(Messages.NoRecordsToList);
         }
 
-        public IDataResult<Brand> GetByID(int Id)
+        public IDataResult<Brand> GetById(int Id)
         {
             if (_brandDal.GetAll(b => b.Id == Id).Count>0)
             {
@@ -59,7 +59,7 @@ namespace Business.Concrete
 
         public IResult Update(Brand brand)
         {
-            if (brand != null)
+            if (brand != null && GetById(brand.Id).Success)
             {
                 _brandDal.Update(brand);
                 return new SuccessResult(Messages.RecordUpdated);
