@@ -1,0 +1,15 @@
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\bin\Debug\net5.0\Entities.deps.json
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\bin\Debug\net5.0\Entities.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\bin\Debug\net5.0\ref\Entities.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\bin\Debug\net5.0\Entities.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\bin\Debug\net5.0\Core.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\bin\Debug\net5.0\Core.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\Entities.csprojAssemblyReference.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\Entities.AssemblyInfoInputs.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\Entities.AssemblyInfo.cs
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\Entities.csproj.CoreCompileInputs.cache
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\Entities.csproj.CopyComplete
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\Entities.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\ref\Entities.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Entities\obj\Debug\net5.0\Entities.pdb
