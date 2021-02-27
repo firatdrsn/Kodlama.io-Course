@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -20,7 +21,7 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
-
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand brand)
         {
             ValidationTool.Validate(new BrandValidator(), brand);
@@ -56,13 +57,13 @@ namespace Business.Concrete
 
         public IDataResult<Brand> GetById(int Id)
         {
-            if (_brandDal.GetAll(b => b.Id == Id).Count>0)
+            if (_brandDal.GetAll(b => b.Id == Id).Count > 0)
             {
                 return new SuccessDataResult<Brand>(_brandDal.GetById(b => b.Id == Id), Messages.RecordFound);
             }
             return new ErrorDataResult<Brand>(Messages.IdInvalid);
         }
-
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Update(Brand brand)
         {
             if (brand != null && GetById(brand.Id).Success)

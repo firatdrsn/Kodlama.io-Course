@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -22,14 +23,13 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            ValidationTool.Validate(new CarValidator(),car);
             _carDal.Add(car);
             return new SuccessResult(Messages.RecordAdded);
             //return new ErrorResult(Messages.CarNameOrDailPriceInvalid);
         }
-
         public IResult Delete(Car car)
         {
             if (car != null && GetById(car.Id).Success)
@@ -39,7 +39,6 @@ namespace Business.Concrete
             }
             return new ErrorResult(Messages.IdInvalid);
         }
-
         public IDataResult<List<Car>> GetAll()
         {
             if (_carDal.GetAll().Count > 0)
@@ -48,7 +47,6 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
         }
-
         public IDataResult<Car> GetById(int Id)
         {
             if (_carDal.GetById(c => c.Id == Id) != null)
@@ -57,7 +55,6 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<Car>(Messages.IdInvalid);
         }
-
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             if (_carDal.GetCarDetails().Count > 0)
@@ -66,7 +63,6 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<List<CarDetailDto>>(Messages.NoRecordsToList);
         }
-
         public IDataResult<List<Car>> GetCarsByBrandId(int Id)
         {
             if (_carDal.GetAll(c => c.BrandId == Id).Count > 0)
@@ -75,7 +71,6 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
         }
-
         public IDataResult<List<Car>> GetCarsByColorId(int Id)
         {
             if (_carDal.GetAll(c => c.ColorId == Id).Count > 0)
@@ -84,6 +79,7 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
         }
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Update(Car car)
         {
             if (car != null && GetById(car.Id).Success)

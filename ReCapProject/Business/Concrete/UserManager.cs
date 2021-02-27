@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -19,11 +20,9 @@ namespace Business.Concrete
         {
             _userDal = userDal;
         }
-
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User service)
         {
-            ValidationTool.Validate(new UserValidator(), service);
-
             if (_userDal.GetAll(u => u.UserName == service.UserName).Count == 0)
             {
                 _userDal.Add(service);
@@ -34,7 +33,7 @@ namespace Business.Concrete
 
         public IResult Delete(User service)
         {
-            if (service!=null && GetById(service.Id).Success)
+            if (service != null && GetById(service.Id).Success)
             {
                 _userDal.Delete(service);
                 return new SuccessResult(Messages.RecordDeleted);
@@ -59,10 +58,10 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<User>(Messages.IdInvalid);
         }
-
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Update(User service)
         {
-            if (service!=null && GetById(service.Id).Success)
+            if (service != null && GetById(service.Id).Success)
             {
                 _userDal.Update(service);
                 return new SuccessResult(Messages.RecordUpdated);

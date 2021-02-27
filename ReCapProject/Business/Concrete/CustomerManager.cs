@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -20,11 +21,9 @@ namespace Business.Concrete
         {
             _customerDal = customerDal;
         }
-
+        [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer service)
         {
-            ValidationTool.Validate(new CustomerValidator(), service);
-
             if (_customerDal.GetAll(c => c.UserId == service.UserId).Count == 0)
             {
                 _customerDal.Add(service);
@@ -63,16 +62,16 @@ namespace Business.Concrete
 
         public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
         {
-            if (_customerDal.GetCustomerDetails().Count>0)
+            if (_customerDal.GetCustomerDetails().Count > 0)
             {
-                return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.GetCustomerDetails(),Messages.RecordsListed);
+                return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.GetCustomerDetails(), Messages.RecordsListed);
             }
             return new ErrorDataResult<List<CustomerDetailDto>>(Messages.NoRecordsToList);
         }
-
+        [ValidationAspect(typeof(CustomerValidator))]
         public IResult Update(Customer service)
         {
-            if (service!=null && GetById(service.Id).Success)
+            if (service != null && GetById(service.Id).Success)
             {
                 _customerDal.Update(service);
                 return new SuccessResult(Messages.RecordUpdated);
