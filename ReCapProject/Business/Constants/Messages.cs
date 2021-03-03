@@ -24,6 +24,6 @@ namespace Business.Constants
         public static string IdInvalid = "Geçersiz Id";
         public static string IdOrDateInvalid = "Geçersiz Id veya Tarih";
         public static string RecordDeleted = "Kayıt silindi";
-
+        public static string CarImageLimitError ="Resim yükleme sınırına ulaşıldı";
     }
 }
