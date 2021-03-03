@@ -45,7 +45,7 @@ namespace Business.Concrete
         {
             FileHelper.Delete(carImage.ImagePath);
             _carImageDal.Delete(carImage);
-            return new SuccessResult();
+            return new SuccessResult(Messages.RecordDeleted);
         }
 
         public IDataResult<List<CarImage>> GetAll()
