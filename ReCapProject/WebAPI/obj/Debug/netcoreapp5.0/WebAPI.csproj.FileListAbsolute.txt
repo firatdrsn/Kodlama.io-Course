@@ -1,4 +1,3 @@
-C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\obj\Debug\netcoreapp5.0\WebAPI.csprojAssemblyReference.cache
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\obj\Debug\netcoreapp5.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\obj\Debug\netcoreapp5.0\WebAPI.AssemblyInfoInputs.cache
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\obj\Debug\netcoreapp5.0\WebAPI.AssemblyInfo.cs
@@ -29,7 +28,6 @@ C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netc
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\Newtonsoft.Json.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -100,3 +98,5 @@ C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netc
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\zh-Hant\Microsoft.TestPlatform.CoreUtilities.resources.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\WebAPI\obj\Debug\netcoreapp5.0\WebAPI.csproj.AssemblyReference.cache

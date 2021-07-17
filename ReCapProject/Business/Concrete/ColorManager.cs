@@ -3,12 +3,12 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Business.Concrete
 {
@@ -23,14 +23,13 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Color color)
         {
-            ValidationTool.Validate(new ColorValidator(), color);
-
-            if (_colorDal.GetAll(c => c.ColorName == color.ColorName).Count == 0)
+            IResult result = BusinessRules.Run(CheckIfColorNameExists(color.ColorName), CheckIfNull(color));
+            if (result != null)
             {
-                _colorDal.Add(color);
-                return new SuccessResult(Messages.RecordAdded);
+                return result;
             }
-            return new ErrorResult(Messages.SameColorAvailable);
+            _colorDal.Add(color);
+            return new SuccessResult(Messages.RecordAdded);
         }
 
         public IResult Delete(Color color)
@@ -61,12 +60,30 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Update(Color color)
         {
-            if (color != null && GetById(color.Id).Success)
+            IResult result = BusinessRules.Run(CheckIfColorNameExists(color.ColorName), CheckIfNull(color));
+            if (result != null)
             {
-                _colorDal.Update(color);
-                return new SuccessResult(Messages.RecordUpdated);
+                return result;
             }
-            return new ErrorResult(Messages.IdInvalid);
+            _colorDal.Update(color);
+            return new SuccessResult(Messages.RecordUpdated);
         }
+        private IResult CheckIfColorNameExists(string colorName)
+        {
+            if (_colorDal.GetAll(b => b.ColorName == colorName).Any())
+            {
+                return new ErrorResult(Messages.SameColorAvailable);
+            }
+            return new SuccessResult();
+        }
+        private IResult CheckIfNull(Color color)
+        {
+            if (color == null)
+            {
+                return new ErrorResult(Messages.RecordNull);
+            }
+            return new SuccessResult();
+        }
+        
     }
 }

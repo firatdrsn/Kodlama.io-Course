@@ -1,11 +1,7 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
@@ -20,6 +16,7 @@ namespace WebAPI.Controllers
             _customerService = customerService;
         }
         [HttpGet("getall")]
+        [Authorize(Roles ="Customers.List")]
         public IActionResult GetAll()
         {
             var result = _customerService.GetAll();
@@ -30,6 +27,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getbyid")]
+        [Authorize(Roles = "Customers.List")]
         public IActionResult GetById(int id)
         {
             var result = _customerService.GetById(id);
@@ -40,6 +38,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getcustomerdetails")]
+        [Authorize(Roles = "Customers.List")]
         public IActionResult GetCustomerDetails()
         {
             var result = _customerService.GetCustomerDetails();
@@ -50,6 +49,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
+        [Authorize(Roles ="Customers.Add")]
         public IActionResult Add(Customer customer)
         {
             var result = _customerService.Add(customer);
@@ -60,6 +60,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
+        [Authorize(Roles ="Customers.Update")]
         public IActionResult Update(Customer customer)
         {
             var result = _customerService.Update(customer);
@@ -70,6 +71,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
+        [Authorize(Roles ="Customers.Delete")]
         public IActionResult Delete(Customer customer)
         {
             var result = _customerService.Delete(customer);

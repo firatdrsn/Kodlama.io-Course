@@ -1,4 +1,3 @@
-C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\net5.0\Business.csprojAssemblyReference.cache
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\net5.0\Business.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\net5.0\Business.AssemblyInfoInputs.cache
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\net5.0\Business.AssemblyInfo.cs
@@ -17,3 +16,4 @@ C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\ne
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\net5.0\Business.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\net5.0\ref\Business.dll
 C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\net5.0\Business.pdb
+C:\Users\Firat\source\repos\Kodlama.io-Course\ReCapProject\Business\obj\Debug\net5.0\Business.csproj.AssemblyReference.cache

@@ -1,11 +1,7 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
@@ -40,6 +36,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
+        [Authorize(Roles="Colors.Add")]
         public IActionResult Add(Color color)
         {
             var result = _colorService.Add(color);
@@ -50,6 +47,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
+        [Authorize(Roles ="Colors.Update")]
         public IActionResult Update(Color color)
         {
             var result = _colorService.Update(color);
@@ -60,6 +58,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
+        [Authorize(Roles ="Colors.Delete")]
         public IActionResult Delete(Color color)
         {
             var result = _colorService.Delete(color);

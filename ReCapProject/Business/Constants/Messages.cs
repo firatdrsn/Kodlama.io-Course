@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Entities.Concrete;
 
 namespace Business.Constants
 {
@@ -9,7 +7,6 @@ namespace Business.Constants
 
         public static string SameBrandAvailable = "Aynı marka mevcut";
         public static string SameColorAvailable = "Aynı renk mevcut";
-        public static string SameUsernameAvailable = "Aynı kullanıcı adı mevcut";
 
         public static string UserHasCompany = "Bu kullanıcının kayıtlı olduğu bir şirket zaten var";
 
@@ -24,6 +21,14 @@ namespace Business.Constants
         public static string IdInvalid = "Geçersiz Id";
         public static string IdOrDateInvalid = "Geçersiz Id veya Tarih";
         public static string RecordDeleted = "Kayıt silindi";
-        public static string CarImageLimitError ="Resim yükleme sınırına ulaşıldı";
+        public static string CarImageLimitError = "Resim yükleme sınırına ulaşıldı";
+        public static string RecordNull = "Kayıt yok. Null olarak geliyor";
+
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string UserAlreadyExits = "Aynı kullanıcı adı mevcut";
+        public static string PasswordError = "Şifre hatalı";
+        public static string SuccessForLogin = "Sisteme Giriş Başarılı";
+        public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
+        public static string AccessTokenCreated = "Access Token başarıyla oluşturuldu";
     }
 }

@@ -1,11 +1,7 @@
 ﻿using Core.Utilities.Results;
 using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Utilities.Helpers
 {
@@ -16,12 +12,12 @@ namespace Core.Utilities.Helpers
             var sourcepath = Path.GetTempFileName();
             if (file.Length > 0)
             {
-                using (var fileStream = new FileStream(sourcepath, FileMode.Create))
+                using (var uploading = new FileStream(sourcepath, FileMode.Create))
                 {
-                    file.CopyTo(fileStream);
+                    file.CopyTo(uploading);
                 }
             }
-            var result = NewPath(file);
+            var result = newPath(file);
             File.Move(sourcepath, result);
             return result;
         }
@@ -34,7 +30,7 @@ namespace Core.Utilities.Helpers
             }
             catch (Exception exception)
             {
-                return new ErrorResult("Dosya silinemedi: " + exception.ToString());
+                return new ErrorResult(exception.Message);
             }
 
             return new SuccessResult();
@@ -42,24 +38,24 @@ namespace Core.Utilities.Helpers
 
         public static string Update(string sourcePath, IFormFile file)
         {
-            var result = NewPath(file);
+            var result = newPath(file);
             if (sourcePath.Length > 0)
             {
-                using (var fileStream = new FileStream(result, FileMode.Create))
+                using (var stream = new FileStream(result, FileMode.Create))
                 {
-                    file.CopyTo(fileStream);
+                    file.CopyTo(stream);
                 }
             }
             File.Delete(sourcePath);
             return result;
         }
 
-
-        public static string NewPath(IFormFile file)
+        public static string newPath(IFormFile file)
         {
             FileInfo fileInfo = new FileInfo(file.FileName);
             string fileExtension = fileInfo.Extension;
-            var newPath = Guid.NewGuid().ToString() + "_" + DateTime.Now.Month + " " + DateTime.Now.Day + " " + DateTime.Now.Year + fileExtension;
+            string path = Environment.CurrentDirectory + @"\wwwroot\Images";
+            var newPath = Guid.NewGuid().ToString() + fileExtension;
             string result = $@"wwwroot\Images\{newPath}";
             return result;
         }

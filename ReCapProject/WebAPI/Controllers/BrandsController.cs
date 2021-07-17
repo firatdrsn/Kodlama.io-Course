@@ -1,13 +1,7 @@
 ﻿using Business.Abstract;
-using Business.Concrete;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
@@ -44,6 +38,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
+        [Authorize(Roles="Brands.Add")]
         public IActionResult Add(Brand brand)
         {
             var result = _brandService.Add(brand);
@@ -54,6 +49,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
+        [Authorize(Roles ="Brands.Delete")]
         public IActionResult Delete(Brand brand)
         {
             var result = _brandService.Delete(brand);
@@ -64,6 +60,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
+        [Authorize(Roles ="Brands.Update")]
         public IActionResult Update(Brand brand)
         {
             var result = _brandService.Update(brand);

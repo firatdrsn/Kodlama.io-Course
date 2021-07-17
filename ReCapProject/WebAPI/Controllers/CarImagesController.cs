@@ -2,10 +2,7 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
@@ -30,7 +27,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
+        public IActionResult GetById([FromForm(Name = ("Id"))] int id)
         {
             var result = _carImageService.GetById(id);
             if (result.Success)
@@ -40,7 +37,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getallimagebycarid")]
-        public IActionResult GetAllImageByCarId(int id)
+        public IActionResult GetAllImageByCarId([FromForm(Name =("CarId"))] int id)
         {
             var result = _carImageService.GetAllImageByCarId(id);
             if (result.Success)
@@ -50,6 +47,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
+        [Authorize(Roles="Cars.Add")]
         public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
             var result = _carImageService.Add(file, carImage);
@@ -60,6 +58,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpDelete("delete")]
+        [Authorize("Cars.Delete")]
         public IActionResult Delete([FromForm(Name = ("Id"))] int Id)
         {
             var carImage = _carImageService.GetById(Id).Data;
@@ -72,6 +71,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
+        [Authorize("Cars.Update")]
         public IActionResult Update([FromForm(Name = ("Image"))] IFormFile file, [FromForm(Name = ("Id"))] int id)
         {
             var carImage = _carImageService.GetById(id).Data;

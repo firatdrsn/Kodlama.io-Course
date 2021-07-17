@@ -1,11 +1,7 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
@@ -70,6 +66,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
+        [Authorize(Roles = "Cars.Add")]
         public IActionResult Add(Car car)
         {
             var result = _carService.Add(car);
@@ -80,6 +77,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
+        [Authorize(Roles = "Cars.Update")]
         public IActionResult Update(Car car)
         {
             var result = _carService.Update(car);
@@ -90,6 +88,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
+        [Authorize(Roles = "Cars.Delete")]
         public IActionResult Delete(Car car)
         {
             var result = _carService.Delete(car);

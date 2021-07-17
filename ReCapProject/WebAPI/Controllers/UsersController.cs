@@ -1,11 +1,9 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
+using Core.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace WebAPI.Controllers
 {
@@ -20,6 +18,7 @@ namespace WebAPI.Controllers
             _userService = userService;
         }
         [HttpGet("getall")]
+        [Authorize(Roles ="Users.List")]
         public IActionResult GetAll()
         {
             var result = _userService.GetAll();
@@ -30,6 +29,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getbyid")]
+        [Authorize(Roles = "Users.List")]
         public IActionResult GetById(int id)
         {
             var result = _userService.GetById(id);
@@ -40,6 +40,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
+        [Authorize(Roles = "Users.Add")]
         public IActionResult Add(User user)
         {
             var result = _userService.Add(user);
@@ -50,6 +51,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
+        [Authorize(Roles = "Users.Update")]
         public IActionResult Update(User user)
         {
             var result = _userService.Update(user);
@@ -60,6 +62,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
+        [Authorize(Roles ="Users.Delete")]
         public IActionResult Delete(User user)
         {
             var result = _userService.Delete(user);

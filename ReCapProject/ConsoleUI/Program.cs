@@ -1,8 +1,7 @@
-﻿using Business.Abstract;
-using Business.Concrete;
+﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Core.Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -34,7 +33,7 @@ namespace ConsoleUI
                         CarMenu();
                         break;
                     case 4:
-                        UserMenu();
+                        //UserMenu();
                         break;
                     case 5:
                         CustomerMenu();
@@ -98,66 +97,66 @@ namespace ConsoleUI
             }
         }
 
-        private static void UserMenu()
-        {
-            int userMenu = 1;
-            while (userMenu != 0)
-            {
-                Console.WriteLine("Kullanıcı eklemek için 1'e basınız\nKullanıcı güncellemek için 2'ye basınız\nKullanıcı silmek için 3'e basınız\nKullanıcıları listelemek için 4'e basınız\nBir üst menüye geçiş yapmak için 0'a basınız");
-                userMenu = int.Parse(Console.ReadLine());
-                switch (userMenu)
-                {
-                    case 1:
-                        Console.WriteLine("Kullanıcı adını giriniz");
-                        User user = new User();
-                        user.UserName = Console.ReadLine();
-                        Console.WriteLine("Şifrenizi giriniz");
-                        user.Password = Console.ReadLine();
-                        Console.WriteLine("Adınızı giriniz");
-                        user.FirstName = Console.ReadLine();
-                        Console.WriteLine("Soyadınızı giriniz");
-                        user.LastName = Console.ReadLine();
-                        Console.WriteLine("E-mail adresinizi giriniz");
-                        user.Email = Console.ReadLine();
-                        Console.WriteLine(userManager.Add(user).Message);
-                        break;
-                    case 2:
-                        Console.WriteLine("Güncellemek istediğiniz kullanıcının Idsini giriniz");
-                        UserWriteList();
-                        User updateToUser = userManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
-                        if (updateToUser==null)
-                        {
-                            Console.WriteLine("Gerçersiz Id");
-                            break;
-                        }
-                        Console.WriteLine("Şifrenizi giriniz");
-                        updateToUser.Password = Console.ReadLine();
-                        Console.WriteLine("Adınızı giriniz");
-                        updateToUser.FirstName = Console.ReadLine();
-                        Console.WriteLine("Soyadınızı giriniz");
-                        updateToUser.LastName = Console.ReadLine();
-                        Console.WriteLine("E-mail adresinizi giriniz");
-                        updateToUser.Email = Console.ReadLine();
-                        Console.WriteLine(userManager.Update(updateToUser).Message);
-                        break;
-                    case 3:
-                        Console.WriteLine("Silmek istediğiniz kullanıcının Idsini giriniz");
-                        UserWriteList();
-                        User deleteToUser = userManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
-                        Console.WriteLine(userManager.Delete(deleteToUser).Message);
-                        break;
-                    case 4:
-                        Console.WriteLine("\nKullanıcılar");
-                        UserWriteList();
-                        break;
-                    case 0:
-                        break;
-                    default:
-                        Console.WriteLine("Hatalı bir seçim yaptınız");
-                        break;
-                }
-            }
-        }
+        //private static void UserMenu()
+        //{
+        //    int userMenu = 1;
+        //    while (userMenu != 0)
+        //    {
+        //        Console.WriteLine("Kullanıcı eklemek için 1'e basınız\nKullanıcı güncellemek için 2'ye basınız\nKullanıcı silmek için 3'e basınız\nKullanıcıları listelemek için 4'e basınız\nBir üst menüye geçiş yapmak için 0'a basınız");
+        //        userMenu = int.Parse(Console.ReadLine());
+        //        switch (userMenu)
+        //        {
+        //            case 1:
+        //                Console.WriteLine("Kullanıcı adını giriniz");
+        //                User user = new User();
+        //                user.UserName = Console.ReadLine();
+        //                Console.WriteLine("Şifrenizi giriniz");
+        //                user.Password = Console.ReadLine();
+        //                Console.WriteLine("Adınızı giriniz");
+        //                user.FirstName = Console.ReadLine();
+        //                Console.WriteLine("Soyadınızı giriniz");
+        //                user.LastName = Console.ReadLine();
+        //                Console.WriteLine("E-mail adresinizi giriniz");
+        //                user.Email = Console.ReadLine();
+        //                Console.WriteLine(userManager.Add(user).Message);
+        //                break;
+        //            case 2:
+        //                Console.WriteLine("Güncellemek istediğiniz kullanıcının Idsini giriniz");
+        //                UserWriteList();
+        //                User updateToUser = userManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
+        //                if (updateToUser==null)
+        //                {
+        //                    Console.WriteLine("Gerçersiz Id");
+        //                    break;
+        //                }
+        //                Console.WriteLine("Şifrenizi giriniz");
+        //                updateToUser.Password = Console.ReadLine();
+        //                Console.WriteLine("Adınızı giriniz");
+        //                updateToUser.FirstName = Console.ReadLine();
+        //                Console.WriteLine("Soyadınızı giriniz");
+        //                updateToUser.LastName = Console.ReadLine();
+        //                Console.WriteLine("E-mail adresinizi giriniz");
+        //                updateToUser.Email = Console.ReadLine();
+        //                Console.WriteLine(userManager.Update(updateToUser).Message);
+        //                break;
+        //            case 3:
+        //                Console.WriteLine("Silmek istediğiniz kullanıcının Idsini giriniz");
+        //                UserWriteList();
+        //                User deleteToUser = userManager.GetById(Convert.ToInt32(Console.ReadLine())).Data;
+        //                Console.WriteLine(userManager.Delete(deleteToUser).Message);
+        //                break;
+        //            case 4:
+        //                Console.WriteLine("\nKullanıcılar");
+        //                UserWriteList();
+        //                break;
+        //            case 0:
+        //                break;
+        //            default:
+        //                Console.WriteLine("Hatalı bir seçim yaptınız");
+        //                break;
+        //        }
+        //    }
+        //}
         private static void CustomerMenu()
         {
             int customerMenu = 1;
