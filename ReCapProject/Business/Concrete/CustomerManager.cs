@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -18,7 +20,9 @@ namespace Business.Concrete
         {
             _customerDal = customerDal;
         }
+        [SecuredOperation("customer.add,admin")]
         [ValidationAspect(typeof(CustomerValidator))]
+        [CacheRemoveAspect("ICustomerService.Get")]
         public IResult Add(Customer service)
         {
             if (_customerDal.GetAll(c => c.UserId == service.UserId).Count == 0)
@@ -28,7 +32,8 @@ namespace Business.Concrete
             }
             return new ErrorResult(Messages.UserHasCompany);
         }
-
+        [SecuredOperation("customer.delete,admin")]
+        [CacheRemoveAspect("ICustomerService.Get")]
         public IResult Delete(Customer service)
         {
             if (service != null && GetById(service.Id).Success)
@@ -38,7 +43,8 @@ namespace Business.Concrete
             }
             return new ErrorResult(Messages.IdInvalid);
         }
-
+        [SecuredOperation("customers.list,admin")]
+        [CacheAspect]
         public IDataResult<List<Customer>> GetAll()
         {
             if (_customerDal.GetAll().Count > 0)
@@ -47,7 +53,8 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<List<Customer>>(Messages.NoRecordsToList);
         }
-
+        [SecuredOperation("customers.list,admin")]
+        [CacheAspect]
         public IDataResult<Customer> GetById(int Id)
         {
             if (_customerDal.GetById(u => u.Id == Id) != null)
@@ -56,7 +63,8 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<Customer>(Messages.IdInvalid);
         }
-
+        [SecuredOperation("customers.list,admin")]
+        [CacheAspect]
         public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
         {
             if (_customerDal.GetCustomerDetails().Count > 0)
@@ -65,7 +73,9 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<List<CustomerDetailDto>>(Messages.NoRecordsToList);
         }
+        [SecuredOperation("customer.update,admin")]
         [ValidationAspect(typeof(CustomerValidator))]
+        [CacheRemoveAspect("ICustomerService.Get")]
         public IResult Update(Customer service)
         {
             if (service != null && GetById(service.Id).Success)

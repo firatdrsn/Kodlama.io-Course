@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using System.Runtime.Serialization;
 
 namespace Business.Constants
 {
@@ -25,10 +26,12 @@ namespace Business.Constants
         public static string RecordNull = "Kayıt yok. Null olarak geliyor";
 
         public static string UserNotFound = "Kullanıcı bulunamadı";
-        public static string UserAlreadyExits = "Aynı kullanıcı adı mevcut";
+        public static string UserAlreadyExists = "Aynı kullanıcı adı mevcut";
         public static string PasswordError = "Şifre hatalı";
         public static string SuccessForLogin = "Sisteme Giriş Başarılı";
         public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
         public static string AccessTokenCreated = "Access Token başarıyla oluşturuldu";
+        public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string SuccessfulLogin = "Giriş başarılı";
     }
 }

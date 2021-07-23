@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -26,9 +27,9 @@ namespace Business.Concrete
                 _userDal.Add(service);
                 return new SuccessResult(Messages.RecordAdded);
             }
-            return new ErrorResult(Messages.UserAlreadyExits);
+            return new ErrorResult(Messages.UserAlreadyExists);
         }
-
+        [SecuredOperation("user.delete,admin")]
         public IResult Delete(User service)
         {
             if (service != null && GetById(service.Id).Success)
@@ -38,7 +39,7 @@ namespace Business.Concrete
             }
             return new ErrorResult(Messages.IdInvalid);
         }
-
+        [SecuredOperation("users.list,admin")]
         public IDataResult<List<User>> GetAll()
         {
             if (_userDal.GetAll().Count > 0)
@@ -47,7 +48,7 @@ namespace Business.Concrete
             }
             return new ErrorDataResult<List<User>>(Messages.NoRecordsToList);
         }
-
+        [SecuredOperation("users.list,admin")]
         public IDataResult<User> GetById(int Id)
         {
             if (_userDal.GetById(u => u.Id == Id) != null)
@@ -74,7 +75,7 @@ namespace Business.Concrete
             }
             return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
         }
-
+        [SecuredOperation("user.update,admin")]
         [ValidationAspect(typeof(UserValidator))]
         public IResult Update(User service)
         {

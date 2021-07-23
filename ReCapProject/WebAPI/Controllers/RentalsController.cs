@@ -56,7 +56,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
-        [Authorize(Roles ="Rentals.Add")]
         public IActionResult Add(Rental rental)
         {
             var result = _rentalService.Add(rental);
@@ -67,7 +66,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
-        [Authorize(Roles = "Rentals.Update")]
         public IActionResult Update(Rental rental)
         {
             var result = _rentalService.Update(rental);
@@ -78,7 +76,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
-        [Authorize(Roles = "Rentals.Delete")]
         public IActionResult Delete(Rental rental)
         {
             var result = _rentalService.Delete(rental);

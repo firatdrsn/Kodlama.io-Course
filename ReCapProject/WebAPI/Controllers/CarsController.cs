@@ -66,7 +66,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
-        [Authorize(Roles = "Cars.Add")]
         public IActionResult Add(Car car)
         {
             var result = _carService.Add(car);
@@ -77,7 +76,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
-        [Authorize(Roles = "Cars.Update")]
         public IActionResult Update(Car car)
         {
             var result = _carService.Update(car);
@@ -88,7 +86,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
-        [Authorize(Roles = "Cars.Delete")]
         public IActionResult Delete(Car car)
         {
             var result = _carService.Delete(car);

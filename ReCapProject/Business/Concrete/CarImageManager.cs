@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -7,6 +8,7 @@ using Core.Utilities.Helpers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -22,6 +24,7 @@ namespace Business.Concrete
         {
             _carImageDal = carImageDal;
         }
+        [SecuredOperation("carimage.add,admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
@@ -37,7 +40,7 @@ namespace Business.Concrete
             _carImageDal.Add(carImage);
             return new SuccessResult(Messages.RecordAdded);
         }
-
+        [SecuredOperation("carimage.delete,admin")]
         public IResult Delete(CarImage carImage)
         {
             FileHelper.Delete(carImage.ImagePath);
@@ -59,7 +62,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<CarImage>(_carImageDal.GetById(c => c.Id == Id), Messages.RecordFound);
         }
-
+        [SecuredOperation("carimage.update,admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Update(IFormFile file, CarImage carImage)
         {
@@ -102,7 +105,7 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<List<CarImage>>(exception.Message);
             }
-            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c=>c.CarId==carId));
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == carId));
         }
     }
 }
