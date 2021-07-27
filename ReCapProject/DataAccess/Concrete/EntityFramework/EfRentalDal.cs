@@ -22,7 +22,9 @@ namespace DataAccess.Concrete.EntityFramework
                              on r.CustomerId equals ctr.Id
                              join u in context.Users
                              on ctr.UserId equals u.Id
-                             select new RentalDetailDto { RentalId = r.Id, CarId = c.Id, CarName = c.CarName, UserName = u.UserName, FirstName = u.FirstName, LastName = u.LastName, CompanyName = ctr.CompanyName, RentDate = r.RentDate, ReturnDate = r.ReturnDate };
+                             join b in context.Brands
+                             on c.BrandId equals b.Id
+                             select new RentalDetailDto { RentalId = r.Id, CarId = c.Id, CarName = c.CarName, BrandName = b.BrandName, UserName = u.UserName, FirstName = u.FirstName, LastName = u.LastName, CompanyName = ctr.CompanyName, RentDate = r.RentDate, ReturnDate = r.ReturnDate };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
             }
         }

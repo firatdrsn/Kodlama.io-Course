@@ -43,7 +43,7 @@ namespace Business.Concrete
             }
             return new ErrorResult(Messages.IdInvalid);
         }
-        [SecuredOperation("customers.list,admin")]
+        //[SecuredOperation("customers.list,admin")]
         [CacheAspect]
         public IDataResult<List<Customer>> GetAll()
         {
