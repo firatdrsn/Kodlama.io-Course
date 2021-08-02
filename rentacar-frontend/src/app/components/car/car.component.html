@@ -13,13 +13,14 @@
         </tr>
     </thead>
     <tbody> 
-        <tr *ngFor="let car of cars">
-            <td>{{car.brandName}}</td>
+    <tr routerLink="/cars/detail/{{car.carId}}" *ngFor="let car of cars">
+            <td >{{car.brandName}}</td>
             <td>{{car.colorName}}</td>
             <td>{{car.carName}}</td>
             <td>{{car.modelYear}}</td>
-            <td>{{car.dailyPrice}}</td>
+            <td>{{car.dailyPrice}} ₺</td>
             <td>{{car.description}}</td>
         </tr>
     </tbody>
 </table>
+<h3 *ngIf="message!=''">{{message}}</h3>

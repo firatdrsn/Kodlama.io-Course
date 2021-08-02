@@ -1,0 +1,35 @@
+<div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Araç Adı</th>
+          <th>Markası</th>
+          <th>Rengi</th>
+          <th>Günlük Fiyatı</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td>{{car.carName}}</td>
+          <td>{{car.brandName}}</td>
+          <td>{{car.colorName}}</td>
+          <td>{{car.dailyPrice}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div id="{{i}}" [class]="getActivePhoto(i)" *ngFor="let carImage of carImages let i=index">
+      <img [src]="getPhotoPath(carImage)" style="height: 400px;" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next"  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
