@@ -44,12 +44,22 @@ namespace DataAccess.Concrete.InMemory
             throw new NotImplementedException();
         }
 
+        public List<CarDetailDto> GetAllCarsDetails(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public Car GetById(int Id)
         {
             return _cars.SingleOrDefault(c => c.Id == Id);
         }
 
         public Car GetById(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CarDetailDto GetCarDetailById(Expression<Func<CarDetailDto, bool>> filter)
         {
             throw new NotImplementedException();
         }

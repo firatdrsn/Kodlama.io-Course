@@ -467,14 +467,14 @@ namespace ConsoleUI
         {
             try
             {
-                foreach (var carDetail in carManager.GetCarDetails().Data)
+                foreach (var carDetail in carManager.GetAllCarsDetails().Data)
                 {
                     Console.WriteLine(carDetail.CarId + " - " + carDetail.CarName + " - " + carDetail.BrandName + " - " + carDetail.ColorName + " - " + carDetail.DailyPrice+" - "+carDetail.Description);
                 }
             }
             catch
             {
-                Console.WriteLine(carManager.GetCarDetails().Message);
+                Console.WriteLine(carManager.GetAllCarsDetails().Message);
             }
         }
 

@@ -76,31 +76,40 @@ namespace Business.Concrete
             return new ErrorDataResult<Car>(Messages.IdInvalid);
         }
         [CacheAspect]
-        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetAllCarsDetails()
         {
-            if (_carDal.GetCarDetails().Count > 0)
+            if (_carDal.GetAllCarsDetails().Count > 0)
             {
-                return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.RecordsListed);
+                return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarsDetails(), Messages.RecordsListed);
             }
             return new ErrorDataResult<List<CarDetailDto>>(Messages.NoRecordsToList);
         }
         [CacheAspect]
-        public IDataResult<List<Car>> GetCarsByBrandId(int Id)
+        public IDataResult<List<CarDetailDto>> GetCarDetailById(int id)
+        {
+            if (_carDal.GetAllCarsDetails(c => c.Id == id) != null)
+            {
+                return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarsDetails(c => c.Id == id), Messages.RecordFound);
+            }
+            return new ErrorDataResult<List<CarDetailDto>>(Messages.IdInvalid);
+        }
+        [CacheAspect]
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int Id)
         {
             if (_carDal.GetAll(c => c.BrandId == Id).Count > 0)
             {
-                return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == Id), Messages.RecordsListed);
+                return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarsDetails(c => c.BrandId == Id), Messages.RecordsListed);
             }
-            return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
+            return new ErrorDataResult<List<CarDetailDto>>(Messages.NoRecordsToList);
         }
         [CacheAspect]
-        public IDataResult<List<Car>> GetCarsByColorId(int Id)
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int Id)
         {
             if (_carDal.GetAll(c => c.ColorId == Id).Count > 0)
             {
-                return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == Id), Messages.RecordsListed);
+                return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarsDetails(c => c.ColorId == Id), Messages.RecordsListed);
             }
-            return new ErrorDataResult<List<Car>>(Messages.NoRecordsToList);
+            return new ErrorDataResult<List<CarDetailDto>>(Messages.NoRecordsToList);
         }
         [SecuredOperation("car.update,admin")]
         [ValidationAspect(typeof(CarValidator))]

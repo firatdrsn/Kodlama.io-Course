@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DefSrgLBrS4Jj09hNwRHFb8kjs/wn/2VNAxzjFKZrkN0OikDe9s911OToWBYBFDmJ6jWN7WNPlo9V6MDhwXEZQ==",
+  "dgSpecHash": "VpKDZ7JWLBjXAe1l3NdERjXQcRmFiTdD4eER4PVECsNbrTXBOSco5tqWo35gn56UVKV6r/BRR7A2Cu1/sUvxlw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Firat\\source\\repos\\Kodlama.io-Course\\ReCapProject\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,7 @@
     "C:\\Users\\Firat\\.nuget\\packages\\fluentvalidation\\9.5.1\\fluentvalidation.9.5.1.nupkg.sha512",
     "C:\\Users\\Firat\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.5.1\\fluentvalidation.aspnetcore.9.5.1.nupkg.sha512",
     "C:\\Users\\Firat\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.5.1\\fluentvalidation.dependencyinjectionextensions.9.5.1.nupkg.sha512",
-    "C:\\Users\\Firat\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.4\\microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
+    "C:\\Users\\Firat\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.8\\microsoft.aspnetcore.authentication.jwtbearer.5.0.8.nupkg.sha512",
     "C:\\Users\\Firat\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\Firat\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Firat\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.3\\microsoft.aspnetcore.http.features.5.0.3.nupkg.sha512",

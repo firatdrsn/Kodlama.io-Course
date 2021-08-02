@@ -1,4 +1,6 @@
 ﻿using Core.Entities;
+using Entities.Concrete;
+using System.Collections.Generic;
 
 namespace Entities.DTOs
 {
@@ -11,6 +13,5 @@ namespace Entities.DTOs
         public int DailyPrice { get; set; }
         public int ModelYear { get; set; }
         public string Description { get; set; }
-
     }
 }

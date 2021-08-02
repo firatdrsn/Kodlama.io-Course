@@ -24,8 +24,8 @@ namespace Business.Concrete
         {
             _carImageDal = carImageDal;
         }
-        [SecuredOperation("carimage.add,admin")]
-        [ValidationAspect(typeof(CarImageValidator))]
+        //[SecuredOperation("carimage.add,admin")]
+        //[ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfCarImageLimitOfCorrect(carImage.CarId));
@@ -91,7 +91,7 @@ namespace Business.Concrete
         {
             try
             {
-                string path = @"\wwwroot\Images\rentacar.jpg";
+                string path = @"\Images\default.jpg";
                 var result = _carImageDal.GetAll(c => c.CarId == carId).Any();
                 if (!result)
                 {
